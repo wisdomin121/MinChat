@@ -1,6 +1,12 @@
-import { Label, Section } from 'components';
+import { useState } from 'react';
+
+import { Label, Section, ChatListItem } from 'components';
+import chat_list from '../datas/chat_list_mock.json';
 
 export const ChatListSection = () => {
+  // TODO: store로 관리할듯...?
+  const [chatList, setChatList] = useState(chat_list.datas);
+
   return (
     <Section _width={35}>
       <Label
@@ -16,6 +22,19 @@ export const ChatListSection = () => {
         _padding="0 0 0 30px"
         _color="gray_3"
       />
+
+      {chatList.map(
+        ({ chat_id, chat_title, chat_last_message, chat_last_time }) => {
+          return (
+            <ChatListItem
+              key={chat_id}
+              chat_title={chat_title}
+              chat_last_message={chat_last_message}
+              chat_last_time={chat_last_time}
+            />
+          );
+        }
+      )}
     </Section>
   );
 };
