@@ -8,7 +8,8 @@ function App() {
     <div className="app">
       <ChatListSection />
       <ChatSection />
-      <ChatMemberSection />
+      {/* TODO: 눌렀는지 안 눌렀는지 여부에 따라 열리게 하기 */}
+      {false && <ChatMemberSection />}{' '}
     </div>
   );
 }
