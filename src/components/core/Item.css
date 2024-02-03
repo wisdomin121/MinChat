@@ -1,0 +1,11 @@
+.item {
+  display: flex;
+  padding: 10px 30px;
+
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #639bec33;
+    cursor: pointer;
+  }
+}
