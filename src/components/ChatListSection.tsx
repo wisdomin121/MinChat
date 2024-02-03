@@ -8,7 +8,7 @@ export const ChatListSection = () => {
   const [chatList, setChatList] = useState(chat_list.datas);
 
   return (
-    <Section _width={35}>
+    <Section _width="35%">
       <Label
         text="MinChat"
         _padding="20px 0 0 30px"
@@ -39,7 +39,7 @@ export const ChatListSection = () => {
 
       <Button
         _margin="auto 30px 30px"
-        _padding="8px 0"
+        _padding="12px 0"
         _onClick={() => console.log('채팅방 추가하기')}
       >
         채팅방 추가하기
