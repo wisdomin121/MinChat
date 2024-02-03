@@ -1,50 +1,16 @@
-import { useState } from 'react';
-
-import { Label, Section, ChatListItem, Button, Div } from 'components';
-import chat_list from '../datas/chat_list_mock.json';
+import {
+  Section,
+  ChatListHeader,
+  ChatListFooter,
+  ChatListContent,
+} from 'components';
 
 export const ChatListSection = () => {
-  // TODO: store로 관리할듯...?
-  const [chatList, setChatList] = useState(chat_list.datas);
-
   return (
     <Section _width="35%">
-      <Label
-        text="MinChat"
-        _padding="20px 0 0 30px"
-        _color="logo"
-        _fontSize="h1"
-        _fontWeight="bold"
-      />
-      <Label
-        text="All Message"
-        _margin="40px 0 16px"
-        _padding="0 0 0 30px"
-        _color="gray_3"
-      />
-
-      <Div _flex_direction="column" _overflow="auto">
-        {chatList.map(
-          ({ chat_id, chat_title, chat_last_message, chat_last_time }) => {
-            return (
-              <ChatListItem
-                key={chat_id}
-                chat_id={chat_id}
-                chat_title={chat_title}
-                chat_last_message={chat_last_message}
-                chat_last_time={chat_last_time}
-              />
-            );
-          }
-        )}
-      </Div>
-      <Button
-        _margin="auto 30px 30px"
-        _padding="12px 0"
-        _onClick={() => console.log('채팅방 추가하기')}
-      >
-        채팅방 추가하기
-      </Button>
+      <ChatListHeader />
+      <ChatListContent />
+      <ChatListFooter />
     </Section>
   );
 };
