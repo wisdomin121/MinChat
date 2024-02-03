@@ -3,8 +3,11 @@
 }
 
 .bg-color-logo {
-  color: white;
   background-color: #639bec;
+}
+
+.bg-color-white {
+  background-color: white;
 }
 
 .bg-color-gray_1 {

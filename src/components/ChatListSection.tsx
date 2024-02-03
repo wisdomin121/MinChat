@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Label, Section, ChatListItem, Button } from 'components';
+import { Label, Section, ChatListItem, Button, Div } from 'components';
 import chat_list from '../datas/chat_list_mock.json';
 
 export const ChatListSection = () => {
@@ -23,20 +23,21 @@ export const ChatListSection = () => {
         _color="gray_3"
       />
 
-      {chatList.map(
-        ({ chat_id, chat_title, chat_last_message, chat_last_time }) => {
-          return (
-            <ChatListItem
-              key={chat_id}
-              chat_id={chat_id}
-              chat_title={chat_title}
-              chat_last_message={chat_last_message}
-              chat_last_time={chat_last_time}
-            />
-          );
-        }
-      )}
-
+      <Div _flex_direction="column" _overflow="auto">
+        {chatList.map(
+          ({ chat_id, chat_title, chat_last_message, chat_last_time }) => {
+            return (
+              <ChatListItem
+                key={chat_id}
+                chat_id={chat_id}
+                chat_title={chat_title}
+                chat_last_message={chat_last_message}
+                chat_last_time={chat_last_time}
+              />
+            );
+          }
+        )}
+      </Div>
       <Button
         _margin="auto 30px 30px"
         _padding="12px 0"

@@ -1,5 +1,5 @@
 import Icon from 'assets';
-import { Button, Div, Input, Label, Section } from 'components';
+import { Button, ChatItem, Div, Input, Label, Section } from 'components';
 
 export const ChatSection = () => {
   return (
@@ -14,12 +14,22 @@ export const ChatSection = () => {
       </Div>
 
       <Div
+        _flex_direction="column"
         _height="100%"
         _margin="20px 30px"
         _background_color="gray_1"
         _border_radius={10}
+        _overflow="auto"
       >
-        test
+        <ChatItem user_name="first" message="sdfsdf" time="PM 07:00" />
+        <ChatItem user_name="first" message="sdfsdf" time="PM 07:00" />
+        <ChatItem user_name="first" message="sdfsdf" time="PM 07:00" />
+        <ChatItem user_name="first" message="sdfsdf" time="PM 07:00" />
+        <ChatItem user_name="first" message="sdfsdf" time="PM 07:00" />
+        <ChatItem user_name="first" message="sdfsdf" time="PM 07:00" />
+        <ChatItem user_name="first" message="sdfsdf" time="PM 07:00" />
+        <ChatItem user_name="first" message="sdfsdf" time="PM 07:00" />
+        <ChatItem user_name="first" message="sdfsdf" time="PM 07:00" />
       </Div>
 
       <Div>

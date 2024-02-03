@@ -11,6 +11,7 @@ interface IDiv extends ICommonComponent {
   _gap?: number;
   _background_color?: ColorType;
   _border_radius?: number;
+  _overflow?: 'auto';
 }
 
 export const Div = ({
@@ -25,6 +26,7 @@ export const Div = ({
   _padding,
   _background_color,
   _border_radius,
+  _overflow,
 }: IDiv) => {
   return (
     <div
@@ -39,6 +41,7 @@ export const Div = ({
         margin: _margin,
         padding: _padding,
         borderRadius: `${_border_radius}px`,
+        overflow: _overflow,
       }}
     >
       {children}
