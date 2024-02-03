@@ -12,6 +12,8 @@ interface IButton extends ICommonComponent {
 export const Button = ({
   children,
   _backgroundColor = 'logo',
+  _width,
+  _height,
   _margin,
   _padding,
   _onClick,
@@ -19,7 +21,12 @@ export const Button = ({
   return (
     <button
       className={`button bg-color-${_backgroundColor}`}
-      style={{ margin: _margin, padding: _padding }}
+      style={{
+        width: _width,
+        height: _height,
+        margin: _margin,
+        padding: _padding,
+      }}
       onClick={_onClick}
     >
       {children}
