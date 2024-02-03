@@ -1,25 +1,25 @@
 {
   "datas": [
     {
-      "chat_id": 1,
+      "chat_id": "1",
       "chat_title": "Family",
       "chat_last_message": "밥 먹었어 ?",
       "chat_last_time": "2024-01-30T01:01:01.000Z"
     },
     {
-      "chat_id": 2,
+      "chat_id": "2",
       "chat_title": "Family",
       "chat_last_message": "밥 먹었어 ?",
       "chat_last_time": "2024-01-30T01:01:01.000Z"
     },
     {
-      "chat_id": 3,
+      "chat_id": "3",
       "chat_title": "Family",
       "chat_last_message": "밥 먹었어 ?",
       "chat_last_time": "2024-01-30T01:01:01.000Z"
     },
     {
-      "chat_id": 4,
+      "chat_id": "4",
       "chat_title": "Family",
       "chat_last_message": "밥 먹었어 ?",
       "chat_last_time": "2024-01-30T01:01:01.000Z"

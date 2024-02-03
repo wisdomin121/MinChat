@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import './Div.css';
+import './DivStyle.css';
 
 interface IDiv {
   children: ReactNode;

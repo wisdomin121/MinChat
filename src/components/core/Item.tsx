@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import './Item.css';
+import './ItemStyle.css';
 
 interface IItem {
   children: ReactNode;

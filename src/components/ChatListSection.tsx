@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Label, Section, ChatListItem } from 'components';
+import { Label, Section, ChatListItem, Button } from 'components';
 import chat_list from '../datas/chat_list_mock.json';
 
 export const ChatListSection = () => {
@@ -28,6 +28,7 @@ export const ChatListSection = () => {
           return (
             <ChatListItem
               key={chat_id}
+              chat_id={chat_id}
               chat_title={chat_title}
               chat_last_message={chat_last_message}
               chat_last_time={chat_last_time}
@@ -35,6 +36,14 @@ export const ChatListSection = () => {
           );
         }
       )}
+
+      <Button
+        _margin="auto 30px 30px"
+        _padding="8px 0"
+        _onClick={() => console.log('채팅방 추가하기')}
+      >
+        채팅방 추가하기
+      </Button>
     </Section>
   );
 };
