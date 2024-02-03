@@ -1,11 +1,14 @@
 import React from 'react';
+import { ChatListSection, ChatMemberSection, ChatSection } from 'components';
+
 import './App.css';
-import { ChatListComponent } from 'components';
 
 function App() {
   return (
-    <div>
-      <ChatListComponent />
+    <div className="app">
+      <ChatListSection />
+      <ChatSection />
+      <ChatMemberSection />
     </div>
   );
 }
