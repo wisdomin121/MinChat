@@ -14,14 +14,14 @@ export const ChatListItem = ({
   chat_last_message,
   chat_last_time,
 }: IChatListItem) => {
-  const { setNowChatId } = useChatStore();
+  const { nowChatId, setNowChatId } = useChatStore();
 
   const changeChatId = () => {
     setNowChatId(chat_id);
   };
-
+  console.log('=== chat_id', chat_id, nowChatId, chat_id === nowChatId);
   return (
-    <Item _onClick={changeChatId}>
+    <Item isActive={chat_id === nowChatId} _onClick={changeChatId}>
       <Div _flex_direction="column">
         <Label text={chat_title} _fontSize="b2" _fontWeight="bold" />
         <Label text={chat_last_message} _fontSize="b2" />
