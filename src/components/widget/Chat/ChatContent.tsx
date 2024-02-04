@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { ChatItem, Div } from 'components';
 import { useChatStore } from 'stores';
 
-export const ChatContent = React.memo(() => {
+export const ChatContent = () => {
   const { nowChatId, chatInfo } = useChatStore();
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -15,6 +15,8 @@ export const ChatContent = React.memo(() => {
       contentRef.current.scrollTop = contentRef.current.scrollHeight;
     }
   }, [nowChatId, chatInfo]);
+
+  console.log('rendering');
 
   return (
     <Div
@@ -46,4 +48,4 @@ export const ChatContent = React.memo(() => {
       )}
     </Div>
   );
-});
+};

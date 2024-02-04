@@ -21,6 +21,7 @@ export const ChatAddModal = ({ closeModal }: IChatAddModal) => {
 
     const chatId = `chat_${chatListLength + 1}`;
 
+    setChatListLength();
     addChatInfo(chatId, title, members);
     addChatList(chatId, {
       chat_title: title,
@@ -28,7 +29,6 @@ export const ChatAddModal = ({ closeModal }: IChatAddModal) => {
       chat_last_time: '',
     });
 
-    setChatListLength();
     setTitle('');
     setMembers('');
     closeModal();

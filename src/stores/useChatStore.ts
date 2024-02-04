@@ -1,10 +1,10 @@
 import { create } from 'zustand';
 
 import type { IChat, IChatListData, IChatListDatas, IMessage } from 'type';
+import { getCookie } from 'utils';
 
 import chat_list_mock from '../datas/chat_list_mock.json';
 import chat_mock from '../datas/chat_mock.json';
-import { getCookie } from 'utils';
 
 interface IChatStore {
   nowChatId: string;
@@ -48,12 +48,11 @@ export const useChatStore = create<IChatStore>((set) => ({
 
   chatList: { ...chat_list_mock.datas },
   addChatList: (chatId, data) =>
-    set((state) => ({
-      chatList: {
-        ...state.chatList,
-        [chatId]: data,
-      },
-    })),
+    set((state) => {
+      const newChatList = { ...state.chatList, [chatId]: data };
+
+      return { chatList: newChatList };
+    }),
   updateChatLast: (chatLastMessage: string) =>
     set((state) => ({
       chatList: {
@@ -70,7 +69,13 @@ export const useChatStore = create<IChatStore>((set) => ({
   addChatMessage: (chatId, message) =>
     set((state) => {
       const chatInfoCopy = { ...state.chatInfo };
-      chatInfoCopy[chatId].chat_messages.push(message);
+      const newMessages = [...chatInfoCopy[chatId].chat_messages, message];
+
+      chatInfoCopy[chatId] = {
+        ...chatInfoCopy[chatId],
+        chat_messages: newMessages,
+        chat_message_length: newMessages.length,
+      };
 
       return { chatInfo: chatInfoCopy };
     }),

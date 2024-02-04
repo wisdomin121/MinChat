@@ -18,7 +18,9 @@ export const ChatListItem = ({
   const { nowChatId, setNowChatId } = useChatStore();
 
   const changeChatId = () => {
-    setNowChatId(chatId);
+    if (nowChatId !== chatId) {
+      setNowChatId(chatId);
+    }
   };
 
   return (
