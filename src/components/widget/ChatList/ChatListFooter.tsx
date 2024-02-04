@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import { Button, Div, Input, Label, Modal } from 'components';
@@ -29,12 +29,9 @@ export const ChatListFooter = () => {
     });
 
     setMaxNumber();
+    setTitle('');
     closeModal();
   };
-
-  useEffect(() => {
-    setTitle('');
-  }, [modalOpen]);
 
   return (
     <Div _margin="auto 30px 30px">

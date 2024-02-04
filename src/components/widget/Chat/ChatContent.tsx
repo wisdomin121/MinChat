@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+
 import { ChatItem, Div } from 'components';
 import { useChatStore } from 'stores';
 
@@ -13,7 +14,7 @@ export const ChatContent = React.memo(() => {
     ) {
       contentRef.current.scrollTop = contentRef.current.scrollHeight;
     }
-  }, [nowChatId]);
+  }, [nowChatId, chatInfo]);
 
   return (
     <Div
@@ -38,7 +39,7 @@ export const ChatContent = React.memo(() => {
               user_id={user_id}
               user_name={user_name}
               message={message}
-              time={timestamp}
+              timestamp={timestamp}
             />
           );
         }

@@ -1,5 +1,6 @@
 import { Div, Item, Label } from 'components';
 import { useChatStore } from 'stores';
+import { convertISOStringToAMTime } from 'utils';
 
 interface IChatListItem {
   chat_id: string;
@@ -28,7 +29,7 @@ export const ChatListItem = ({
       </Div>
 
       <Label
-        text={chat_last_time}
+        text={convertISOStringToAMTime(chat_last_time)}
         _margin="0 0 0 auto"
         _color="gray_3"
         _fontSize="b3"
