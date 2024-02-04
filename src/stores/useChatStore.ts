@@ -21,7 +21,7 @@ interface IChatStore {
 
 export const useChatStore = create<IChatStore>((set) => ({
   // 현재 화면에 나타나는 대화창을 구성하기 위함
-  nowChatId: 'chat_1',
+  nowChatId: chat_list_mock.datas[0].chat_id,
   setNowChatId: (chatId) => set(() => ({ nowChatId: chatId })),
 
   maxNumber: chat_list_mock.max_number,
