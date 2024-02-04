@@ -53,14 +53,22 @@ export const ChatListFooter = () => {
               _border_radius={5}
               setValue={setTitle}
             />
-            <Button
-              _width="fit-content"
-              _margin="0 0 0 auto"
-              _padding="4px 8px"
-              _onClick={addChat}
-            >
-              추가
-            </Button>
+            <Div _gap={4} _margin="0 0 0 auto">
+              <Button
+                _width="fit-content"
+                _padding="4px 8px"
+                _onClick={addChat}
+              >
+                추가
+              </Button>
+              <Button
+                _width="fit-content"
+                _padding="4px 8px"
+                _onClick={closeModal}
+              >
+                닫기
+              </Button>
+            </Div>
           </Modal>,
           document.body
         )}
