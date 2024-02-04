@@ -9,6 +9,7 @@ export const ChatListFooter = () => {
     useChatStore();
   const [modalOpen, setModalOpen] = useState(false);
   const [title, setTitle] = useState('');
+  const [members, setMembers] = useState('');
 
   const openModal = () => {
     setModalOpen(true);
@@ -26,7 +27,7 @@ export const ChatListFooter = () => {
 
     const chatId = `chat_${chatListLength + 1}`;
 
-    addChatInfo(chatId, title);
+    addChatInfo(chatId, title, members);
     addChatList({
       chat_id: chatId,
       chat_title: title,
@@ -36,6 +37,7 @@ export const ChatListFooter = () => {
 
     setChatListLength();
     setTitle('');
+    setMembers('');
     closeModal();
   };
 
@@ -57,6 +59,15 @@ export const ChatListFooter = () => {
               _backgroundColor="blue_1"
               _borderRadius={5}
               setValue={setTitle}
+            />
+            <Input
+              _value={members}
+              _placeholder="멤버 이름을 ','을 기준으로 입력해주세요 ('가가,나나')"
+              _margin="10px 0"
+              _padding="12px 8px"
+              _backgroundColor="blue_1"
+              _borderRadius={5}
+              setValue={setMembers}
             />
             <Div _gap={4} _margin="0 0 0 auto">
               <Button

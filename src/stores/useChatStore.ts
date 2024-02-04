@@ -4,6 +4,7 @@ import type { IChat, IChatListData, IChatListDatas, IMessage } from 'type';
 
 import chat_list_mock from '../datas/chat_list_mock.json';
 import chat_mock from '../datas/chat_mock.json';
+import { getCookie } from 'utils';
 
 interface IChatStore {
   nowChatId: string;
@@ -20,7 +21,7 @@ interface IChatStore {
 
   chatInfo: IChat;
   addChatMessage: (chatId: string, message: IMessage) => void;
-  addChatInfo: (chatId: string, chatTitle: string) => void;
+  addChatInfo: (chatId: string, chatTitle: string, members: string) => void;
 
   deleteChat: () => void;
 }
@@ -73,12 +74,15 @@ export const useChatStore = create<IChatStore>((set) => ({
 
       return { chatInfo: chatInfoCopy };
     }),
-  addChatInfo: (chatId, chatTitle) =>
+  addChatInfo: (chatId, chatTitle, members) =>
     set((state) => {
       const chatInfoCopy = { ...state.chatInfo };
+      const membersArr = members.split(',');
+      const { user_name } = JSON.parse(getCookie('user'));
+
       chatInfoCopy[chatId] = {
         chat_title: chatTitle,
-        chat_members: [],
+        chat_members: [user_name, ...membersArr],
         chat_message_length: 0,
         chat_messages: [],
       };

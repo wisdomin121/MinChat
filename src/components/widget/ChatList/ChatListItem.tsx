@@ -1,6 +1,6 @@
+import { convertISOStringToAMTime } from 'utils';
 import { Div, Item, Label } from 'components';
 import { useChatStore } from 'stores';
-import { convertISOStringToAMTime } from 'utils';
 
 interface IChatListItem {
   chatId: string;
