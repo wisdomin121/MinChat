@@ -1,10 +1,15 @@
-import { useChatStore } from 'stores';
+import { useChatStore, useSectionStore } from 'stores';
 
 import { Button, Div, Label } from 'components';
 import Icon from 'assets';
 
 export const ChatHeader = () => {
   const { nowChatId, chatInfo, deleteChat } = useChatStore();
+  const { setOpenMemberSection } = useSectionStore();
+
+  const openMemberSection = () => {
+    setOpenMemberSection();
+  };
 
   return (
     <Div _alignItems="center" _margin="30px 30px 0">
@@ -15,7 +20,7 @@ export const ChatHeader = () => {
       />
 
       <Div _gap={20} _margin="0 0 0 auto">
-        <Button _backgroundColor="white" _onClick={() => console.log('member')}>
+        <Button _backgroundColor="white" _onClick={openMemberSection}>
           <Icon.MemberIcon />
         </Button>
         <Button _backgroundColor="white" _onClick={deleteChat}>

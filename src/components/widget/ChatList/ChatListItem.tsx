@@ -23,7 +23,7 @@ export const ChatListItem = ({
 
   return (
     <Item isActive={chatId === nowChatId} _onClick={changeChatId}>
-      <Div _flexDirection="column">
+      <Div _maxWidth="160px" _flexDirection="column">
         <Label text={chatTitle} _fontSize="b2" _fontWeight="bold" />
         <Label text={chatLastMessage} _fontSize="b2" />
       </Div>

@@ -1,5 +1,10 @@
-import { Section } from 'components';
+import { Section, ChatMemberContent, ChatMemberHeader } from 'components';
 
 export const ChatMemberSection = () => {
-  return <Section _width="25%">aa</Section>;
+  return (
+    <Section _width="25%">
+      <ChatMemberHeader />
+      <ChatMemberContent />
+    </Section>
+  );
 };

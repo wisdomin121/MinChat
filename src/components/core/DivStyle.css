@@ -1,5 +1,7 @@
 .div {
   display: flex;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .div::-webkit-scrollbar {

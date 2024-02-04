@@ -34,6 +34,7 @@ export const ChatItem = ({
 
       <Div
         _width="fit-content"
+        _maxWidth="280px"
         _margin={userId === user.user_id ? '4px 20px 4px auto' : '4px 20px'}
         _padding="4px 8px"
         _backgroundColor={userId !== user.user_id ? 'logo' : 'white'}

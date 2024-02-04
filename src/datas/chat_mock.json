@@ -2,7 +2,7 @@
   "datas": {
     "chat_1": {
       "chat_title": "Friend",
-      "chat_members": ["user_1", "user_2"],
+      "chat_members": ["민지", "진주"],
       "chat_message_length": 14,
       "chat_messages": [
         {
@@ -135,7 +135,7 @@
     },
     "chat_2": {
       "chat_title": "Family",
-      "chat_members": ["user_1", "user_2"],
+      "chat_members": ["민지", "진주"],
       "chat_message_length": 14,
       "chat_messages": [
         {
