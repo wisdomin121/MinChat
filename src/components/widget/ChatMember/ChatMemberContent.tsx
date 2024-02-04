@@ -6,9 +6,10 @@ export const ChatMemberContent = () => {
 
   return (
     <Div _flexDirection="column">
-      {chatInfo[nowChatId].chat_members.map((member) => {
-        return <ChatMemberItem name={member} />;
-      })}
+      {chatInfo[nowChatId] &&
+        chatInfo[nowChatId].chat_members.map((member, idx) => {
+          return <ChatMemberItem key={idx} name={member} />;
+        })}
     </Div>
   );
 };

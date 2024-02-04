@@ -14,7 +14,7 @@ export const ChatHeader = () => {
   return (
     <Div _alignItems="center" _margin="30px 30px 0">
       <Label
-        text={chatInfo[nowChatId].chat_title}
+        text={chatInfo[nowChatId] && chatInfo[nowChatId].chat_title}
         _fontSize="h2"
         _fontWeight="bold"
       />

@@ -2,13 +2,11 @@
   "length": 2,
   "datas": {
     "chat_1": {
-      "chat_id": "chat_1",
       "chat_title": "Friend",
       "chat_last_message": "나비야, 나비야 이리 날아오너라",
       "chat_last_time": "2024-01-30T01:01:01.000Z"
     },
     "chat_2": {
-      "chat_id": "chat_2",
       "chat_title": "Family",
       "chat_last_message": "나비야, 나비야 이리 날아오너라",
       "chat_last_time": "2024-01-30T01:01:01.000Z"

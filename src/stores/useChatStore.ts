@@ -16,7 +16,7 @@ interface IChatStore {
   setChatMessageLength: () => void;
 
   chatList: IChatListDatas;
-  addChatList: (data: IChatListData) => void;
+  addChatList: (chatId: string, data: IChatListData) => void;
   updateChatLast: (chatLastMessage: string) => void;
 
   chatInfo: IChat;
@@ -47,11 +47,11 @@ export const useChatStore = create<IChatStore>((set) => ({
     })),
 
   chatList: { ...chat_list_mock.datas },
-  addChatList: (data) =>
+  addChatList: (chatId, data) =>
     set((state) => ({
       chatList: {
         ...state.chatList,
-        [data.chat_id]: data,
+        [chatId]: data,
       },
     })),
   updateChatLast: (chatLastMessage: string) =>

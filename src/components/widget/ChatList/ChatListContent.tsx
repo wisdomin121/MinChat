@@ -14,8 +14,11 @@ export const ChatListContent = () => {
       />
 
       <Div _flexDirection="column" _overflow="auto">
-        {Object.values(chatList).map(
-          ({ chat_id, chat_title, chat_last_message, chat_last_time }) => {
+        {chatList &&
+          Object.keys(chatList).map((chat_id) => {
+            const { chat_title, chat_last_message, chat_last_time } =
+              chatList[chat_id];
+
             return (
               <ChatListItem
                 key={chat_id}
@@ -25,8 +28,7 @@ export const ChatListContent = () => {
                 chatLastTimestamp={chat_last_time}
               />
             );
-          }
-        )}
+          })}
       </Div>
     </Div>
   );
