@@ -1,7 +1,9 @@
+import { ReactNode } from 'react';
+
 import { ColorType, ICommonComponent } from 'type';
 
+import '../../App.css';
 import './ButtonStyle.css';
-import { ReactNode } from 'react';
 
 interface IButton extends ICommonComponent {
   children: ReactNode;

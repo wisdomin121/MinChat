@@ -9,8 +9,8 @@ interface IChatStore {
   nowChatId: string;
   setNowChatId: (chatId: string) => void;
 
-  maxNumber: number;
-  setMaxNumber: () => void;
+  chatListLength: number;
+  setChatListLength: () => void;
 
   chatList: IChatListDatas;
   addChatList: (data: IChatListData) => void;
@@ -22,14 +22,14 @@ interface IChatStore {
 }
 
 export const useChatStore = create<IChatStore>((set) => ({
-  // 현재 화면에 나타나는 대화창을 구성하기 위함
   nowChatId: Object.keys(chat_list_mock.datas)[0],
   setNowChatId: (chatId) => set(() => ({ nowChatId: chatId })),
 
-  maxNumber: chat_list_mock.max_number,
-  setMaxNumber: () => set((state) => ({ maxNumber: state.maxNumber + 1 })),
+  chatListLength: chat_list_mock.length,
+  setChatListLength: () =>
+    set((state) => ({ chatListLength: state.chatListLength + 1 })),
 
-  chatList: chat_list_mock.datas,
+  chatList: { ...chat_list_mock.datas },
   addChatList: (data) =>
     set((state) => ({
       chatList: {
@@ -42,10 +42,9 @@ export const useChatStore = create<IChatStore>((set) => ({
       chatList: {
         ...state.chatList,
         [state.nowChatId]: {
-          chat_id: state.chatList[state.nowChatId].chat_id,
-          chat_title: state.chatList[state.nowChatId].chat_title,
+          ...state.chatList[state.nowChatId],
           chat_last_message: chatLastMessage,
-          chat_last_time: JSON.stringify(new Date()),
+          chat_last_time: new Date().toISOString(),
         },
       },
     })),

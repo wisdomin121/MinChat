@@ -1,5 +1,6 @@
 import { ColorType, ICommonComponent } from 'type';
 
+import '../../App.css';
 import './InputStyle.css';
 
 interface IInput extends ICommonComponent {

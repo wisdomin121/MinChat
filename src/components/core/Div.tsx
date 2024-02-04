@@ -1,6 +1,8 @@
 import React, { ReactNode } from 'react';
+
 import { ColorType, ICommonComponent } from 'type';
 
+import '../../App.css';
 import './DivStyle.css';
 
 interface IDiv extends ICommonComponent {

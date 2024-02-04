@@ -16,7 +16,7 @@ export const ChatFooter = () => {
       message_id: `message_${chatInfo[nowChatId].chat_messages.length}`,
       sender: JSON.parse(getCookie('user')),
       message,
-      timestamp: JSON.stringify(new Date()),
+      timestamp: new Date().toISOString(),
     });
 
     setMessage('');

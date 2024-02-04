@@ -29,7 +29,7 @@ export const ChatListItem = ({
       </Div>
 
       <Label
-        text={convertISOStringToAMTime(chatLastTimestamp)}
+        text={chatLastTimestamp && convertISOStringToAMTime(chatLastTimestamp)}
         _margin="0 0 0 auto"
         _color="gray_3"
         _fontSize="b3"
