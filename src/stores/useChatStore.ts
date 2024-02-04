@@ -12,6 +12,8 @@ interface IChatStore {
   chatListLength: number;
   setChatListLength: () => void;
 
+  setChatMessageLength: () => void;
+
   chatList: IChatListDatas;
   addChatList: (data: IChatListData) => void;
   updateChatLast: (chatLastMessage: string) => void;
@@ -19,6 +21,8 @@ interface IChatStore {
   chatInfo: IChat;
   addChatMessage: (chatId: string, message: IMessage) => void;
   addChatInfo: (chatId: string, chatTitle: string) => void;
+
+  deleteChat: () => void;
 }
 
 export const useChatStore = create<IChatStore>((set) => ({
@@ -28,6 +32,18 @@ export const useChatStore = create<IChatStore>((set) => ({
   chatListLength: chat_list_mock.length,
   setChatListLength: () =>
     set((state) => ({ chatListLength: state.chatListLength + 1 })),
+
+  setChatMessageLength: () =>
+    set((state) => ({
+      chatInfo: {
+        ...state.chatInfo,
+        [state.nowChatId]: {
+          ...state.chatInfo[state.nowChatId],
+          chat_message_length:
+            state.chatInfo[state.nowChatId].chat_message_length + 1,
+        },
+      },
+    })),
 
   chatList: { ...chat_list_mock.datas },
   addChatList: (data) =>
@@ -63,9 +79,25 @@ export const useChatStore = create<IChatStore>((set) => ({
       chatInfoCopy[chatId] = {
         chat_title: chatTitle,
         chat_members: [],
+        chat_message_length: 0,
         chat_messages: [],
       };
 
       return { chatInfo: chatInfoCopy };
+    }),
+
+  deleteChat: () =>
+    set((state) => {
+      const chatInfoCopy = { ...state.chatInfo };
+      delete chatInfoCopy[state.nowChatId];
+
+      const chatListCopy = { ...state.chatList };
+      delete chatListCopy[state.nowChatId];
+
+      return {
+        nowChatId: Object.keys(chatListCopy)[0],
+        chatInfo: chatInfoCopy,
+        chatList: chatListCopy,
+      };
     }),
 }));

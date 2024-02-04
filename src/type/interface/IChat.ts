@@ -12,6 +12,7 @@ export interface IChat {
   [key: string]: {
     chat_title: string;
     chat_members: string[];
+    chat_message_length: number;
     chat_messages: IMessage[];
   };
 }

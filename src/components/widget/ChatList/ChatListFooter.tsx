@@ -19,6 +19,11 @@ export const ChatListFooter = () => {
   };
 
   const addChat = () => {
+    if (title === '') {
+      alert('제목을 입력해주세요');
+      return;
+    }
+
     const chatId = `chat_${chatListLength + 1}`;
 
     addChatInfo(chatId, title);

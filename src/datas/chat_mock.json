@@ -3,6 +3,7 @@
     "chat_1": {
       "chat_title": "Friend",
       "chat_members": ["user_1", "user_2"],
+      "chat_message_length": 14,
       "chat_messages": [
         {
           "message_id": "message_1",
@@ -135,6 +136,7 @@
     "chat_2": {
       "chat_title": "Family",
       "chat_members": ["user_1", "user_2"],
+      "chat_message_length": 14,
       "chat_messages": [
         {
           "message_id": "message_1",

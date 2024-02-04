@@ -6,7 +6,7 @@ const default_user = {
 export const setCookie = (
   name: string,
   value: string,
-  expirationDays: number // 쿠키의 유효 기간
+  expirationDays: number
 ): void => {
   const expires = new Date(
     Date.now() + expirationDays * 24 * 60 * 60 * 1000

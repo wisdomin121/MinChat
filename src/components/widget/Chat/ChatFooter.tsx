@@ -7,17 +7,28 @@ import Icon from 'assets';
 
 export const ChatFooter = () => {
   const [message, setMessage] = useState('');
-  const { nowChatId, chatInfo, addChatMessage, updateChatLast } =
-    useChatStore();
+  const {
+    nowChatId,
+    chatInfo,
+    addChatMessage,
+    updateChatLast,
+    setChatMessageLength,
+  } = useChatStore();
 
   const sendMessage = () => {
+    if (message === '') {
+      alert('메세지를 입력해주세요.');
+      return;
+    }
+
     updateChatLast(message);
     addChatMessage(nowChatId, {
-      message_id: `message_${chatInfo[nowChatId].chat_messages.length}`,
+      message_id: `message_${chatInfo[nowChatId].chat_message_length + 1}`,
       sender: JSON.parse(getCookie('user')),
       message,
       timestamp: new Date().toISOString(),
     });
+    setChatMessageLength();
 
     setMessage('');
   };
