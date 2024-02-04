@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.div::-webkit-scrollbar {
+  display: none;
+}
+
 .bg-color-logo {
   background-color: #639bec;
 }
