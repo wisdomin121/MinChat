@@ -1,10 +1,8 @@
 import { ChatListItem, Div, Label } from 'components';
-import chat_list_mock from '../../../datas/chat_list_mock.json';
-import { useState } from 'react';
+import { useChatStore } from 'stores';
 
 export const ChatListContent = () => {
-  // TODO: 추후 store로 변경
-  const [chatList, setChatList] = useState(chat_list_mock.datas);
+  const { chatList } = useChatStore();
 
   return (
     <Div _flex_direction="column">
