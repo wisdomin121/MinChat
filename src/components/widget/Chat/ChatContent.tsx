@@ -19,11 +19,11 @@ export const ChatContent = React.memo(() => {
   return (
     <Div
       ref={contentRef}
-      _flex_direction="column"
+      _flexDirection="column"
       _height="100%"
       _margin="20px 30px"
-      _background_color="gray_1"
-      _border_radius={10}
+      _backgroundColor="gray_1"
+      _borderRadius={10}
       _overflow="auto"
     >
       {chatInfo[nowChatId]?.chat_messages.map(
@@ -36,8 +36,8 @@ export const ChatContent = React.memo(() => {
           return (
             <ChatItem
               key={message_id}
-              user_id={user_id}
-              user_name={user_name}
+              userId={user_id}
+              userName={user_name}
               message={message}
               timestamp={timestamp}
             />

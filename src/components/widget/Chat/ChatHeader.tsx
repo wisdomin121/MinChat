@@ -7,7 +7,7 @@ export const ChatHeader = () => {
   const { nowChatId, chatInfo } = useChatStore();
 
   return (
-    <Div _align_items="center" _margin="30px 30px 0">
+    <Div _alignItems="center" _margin="30px 30px 0">
       <Label
         text={chatInfo[nowChatId].chat_title}
         _fontSize="h2"

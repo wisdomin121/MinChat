@@ -48,8 +48,8 @@ export const ChatListFooter = () => {
               _placeholder="채팅방 제목을 입력해주세요"
               _margin="10px 0"
               _padding="12px 8px"
-              _background_color="blue_1"
-              _border_radius={5}
+              _backgroundColor="blue_1"
+              _borderRadius={5}
               setValue={setTitle}
             />
             <Div _gap={4} _margin="0 0 0 auto">

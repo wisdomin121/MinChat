@@ -5,12 +5,12 @@ import './DivStyle.css';
 
 interface IDiv extends ICommonComponent {
   children: ReactNode;
-  _flex_direction?: 'row' | 'column';
-  _justify_content?: 'center';
-  _align_items?: 'center';
+  _flexDirection?: 'row' | 'column';
+  _justifyContent?: 'center';
+  _alignItems?: 'center';
   _gap?: number;
-  _background_color?: ColorType;
-  _border_radius?: number;
+  _backgroundColor?: ColorType;
+  _borderRadius?: number;
   _overflow?: 'auto';
 }
 
@@ -18,16 +18,16 @@ export const Div = React.forwardRef(
   (
     {
       children,
-      _flex_direction = 'row',
-      _justify_content,
-      _align_items,
+      _flexDirection = 'row',
+      _justifyContent,
+      _alignItems,
       _gap = 0,
       _width,
       _height,
       _margin,
       _padding,
-      _background_color,
-      _border_radius,
+      _backgroundColor,
+      _borderRadius,
       _overflow,
     }: IDiv,
     ref?: React.Ref<HTMLDivElement>
@@ -35,17 +35,17 @@ export const Div = React.forwardRef(
     return (
       <div
         ref={ref}
-        className={`div bg-color-${_background_color}`}
+        className={`div bg-color-${_backgroundColor}`}
         style={{
-          flexDirection: _flex_direction,
-          justifyContent: _justify_content,
-          alignItems: _align_items,
+          flexDirection: _flexDirection,
+          justifyContent: _justifyContent,
+          alignItems: _alignItems,
           gap: `${_gap}px`,
           width: _width,
           height: _height,
           margin: _margin,
           padding: _padding,
-          borderRadius: `${_border_radius}px`,
+          borderRadius: `${_borderRadius}px`,
           overflow: _overflow,
         }}
       >

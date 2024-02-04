@@ -15,7 +15,7 @@ function App() {
       <ChatListSection />
       <ChatSection />
       {/* TODO: 눌렀는지 안 눌렀는지 여부에 따라 열리게 하기 */}
-      {false && <ChatMemberSection />}{' '}
+      {false && <ChatMemberSection />}
     </div>
   );
 }

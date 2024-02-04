@@ -3,33 +3,33 @@ import { useChatStore } from 'stores';
 import { convertISOStringToAMTime } from 'utils';
 
 interface IChatListItem {
-  chat_id: string;
-  chat_title: string;
-  chat_last_message: string;
-  chat_last_time: string;
+  chatId: string;
+  chatTitle: string;
+  chatLastMessage: string;
+  chatLastTimestamp: string;
 }
 
 export const ChatListItem = ({
-  chat_id,
-  chat_title,
-  chat_last_message,
-  chat_last_time,
+  chatId,
+  chatTitle,
+  chatLastMessage,
+  chatLastTimestamp,
 }: IChatListItem) => {
   const { nowChatId, setNowChatId } = useChatStore();
 
   const changeChatId = () => {
-    setNowChatId(chat_id);
+    setNowChatId(chatId);
   };
-  console.log('=== chat_id', chat_id, nowChatId, chat_id === nowChatId);
+
   return (
-    <Item isActive={chat_id === nowChatId} _onClick={changeChatId}>
-      <Div _flex_direction="column">
-        <Label text={chat_title} _fontSize="b2" _fontWeight="bold" />
-        <Label text={chat_last_message} _fontSize="b2" />
+    <Item isActive={chatId === nowChatId} _onClick={changeChatId}>
+      <Div _flexDirection="column">
+        <Label text={chatTitle} _fontSize="b2" _fontWeight="bold" />
+        <Label text={chatLastMessage} _fontSize="b2" />
       </Div>
 
       <Label
-        text={convertISOStringToAMTime(chat_last_time)}
+        text={convertISOStringToAMTime(chatLastTimestamp)}
         _margin="0 0 0 auto"
         _color="gray_3"
         _fontSize="b3"
