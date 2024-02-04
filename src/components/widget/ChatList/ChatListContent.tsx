@@ -14,7 +14,7 @@ export const ChatListContent = () => {
       />
 
       <Div _flex_direction="column" _overflow="auto">
-        {chatList.map(
+        {Object.values(chatList).map(
           ({ chat_id, chat_title, chat_last_message, chat_last_time }) => {
             return (
               <ChatListItem

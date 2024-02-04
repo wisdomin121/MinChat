@@ -1,9 +1,21 @@
-import React from 'react';
 import { ChatListSection, ChatMemberSection, ChatSection } from 'components';
 
 import './App.css';
+import { useEffect } from 'react';
+import { getCookie, setCookie } from 'utils';
 
 function App() {
+  useEffect(() => {
+    if (!getCookie('user')) {
+      const user = {
+        user_id: 'user_1',
+        user_name: '민지',
+      };
+
+      setCookie('user', JSON.stringify(user), 7);
+    }
+  }, []);
+
   return (
     <div className="app">
       <ChatListSection />

@@ -5,7 +5,7 @@ import { Button, Div, Input, Label, Modal } from 'components';
 import { useChatStore } from 'stores';
 
 export const ChatListFooter = () => {
-  const { maxNumber, setMaxNumber, addChatList } = useChatStore();
+  const { maxNumber, setMaxNumber, addChatList, addChatInfo } = useChatStore();
   const [modalOpen, setModalOpen] = useState(false);
   const [title, setTitle] = useState('');
 
@@ -18,15 +18,17 @@ export const ChatListFooter = () => {
   };
 
   const addChat = () => {
+    const chatId = `chat_${maxNumber + 1}`;
+
+    addChatInfo(chatId, title);
     addChatList({
-      chat_id: `chat_${maxNumber + 1}`,
+      chat_id: chatId,
       chat_title: title,
       chat_last_message: '',
       chat_last_time: '',
     });
 
     setMaxNumber();
-
     closeModal();
   };
 

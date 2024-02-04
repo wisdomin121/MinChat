@@ -1,24 +1,33 @@
 import { useState } from 'react';
 
 import { useChatStore } from 'stores';
-
 import { Button, Div, Input } from 'components';
+import { getCookie, setCookie } from 'utils';
 import Icon from 'assets';
 
 export const ChatFooter = () => {
-  const { nowChatId, chatInfo, addChatMessage } = useChatStore();
+  const { nowChatId, chatInfo, addChatMessage, updateChatLast } =
+    useChatStore();
   const [message, setMessage] = useState('');
 
   const sendMessage = () => {
-    addChatMessage(nowChatId, {
-      message_id: `message_${chatInfo[nowChatId].chat_messages.length}`,
-      sender: {
+    if (getCookie('user')) {
+      const user = {
         user_id: 'user_1',
         user_name: '민지',
-      },
+      };
+
+      setCookie('user', JSON.stringify(user), 7);
+    }
+
+    const user = getCookie('user');
+    addChatMessage(nowChatId, {
+      message_id: `message_${chatInfo[nowChatId].chat_messages.length}`,
+      sender: JSON.parse(user!),
       message,
       timestamp: new Date().toString(),
     });
+    updateChatLast(message);
   };
 
   return (
