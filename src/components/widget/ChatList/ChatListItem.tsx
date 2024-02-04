@@ -1,4 +1,5 @@
 import { Div, Item, Label } from 'components';
+import { useChatStore } from 'stores';
 
 interface IChatListItem {
   chat_id: string;
@@ -13,8 +14,14 @@ export const ChatListItem = ({
   chat_last_message,
   chat_last_time,
 }: IChatListItem) => {
+  const { setNowChatId } = useChatStore();
+
+  const changeChatId = () => {
+    setNowChatId(chat_id);
+  };
+
   return (
-    <Item _onClick={() => console.log(chat_id)}>
+    <Item _onClick={changeChatId}>
       <Div _flex_direction="column">
         <Label text={chat_title} _fontSize="b2" _fontWeight="bold" />
         <Label text={chat_last_message} _fontSize="b2" />

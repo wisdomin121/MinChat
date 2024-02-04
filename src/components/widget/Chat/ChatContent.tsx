@@ -1,12 +1,23 @@
+import React, { useEffect, useRef } from 'react';
 import { ChatItem, Div } from 'components';
-import chat_mock from '../../../datas/chat_mock.json';
-import { useState } from 'react';
+import { useChatStore } from 'stores';
 
-export const ChatContent = () => {
-  const [chat, setChat] = useState(chat_mock.datas.chat_1);
+export const ChatContent = React.memo(() => {
+  const { nowChatId, chatInfo } = useChatStore();
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (
+      contentRef.current &&
+      contentRef.current.scrollHeight > contentRef.current.clientHeight
+    ) {
+      contentRef.current.scrollTop = contentRef.current.scrollHeight;
+    }
+  }, [nowChatId]);
 
   return (
     <Div
+      ref={contentRef}
       _flex_direction="column"
       _height="100%"
       _margin="20px 30px"
@@ -14,7 +25,7 @@ export const ChatContent = () => {
       _border_radius={10}
       _overflow="auto"
     >
-      {chat.chat_messages.map(
+      {chatInfo[nowChatId]?.chat_messages.map(
         ({
           message_id,
           sender: { user_id, user_name },
@@ -34,4 +45,4 @@ export const ChatContent = () => {
       )}
     </Div>
   );
-};
+});

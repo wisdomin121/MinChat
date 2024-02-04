@@ -1,4 +1,4 @@
-export * from './interface/ICommonComponent';
+export * from './interface';
 
 export * from './colors';
 export * from './font';
