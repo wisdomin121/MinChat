@@ -20,7 +20,7 @@ interface IChatStore {
   updateChatLast: (chatLastMessage: string) => void;
 
   chatInfo: IChat;
-  addChatMessage: (chatId: string, message: IMessage) => void;
+  addChatMessage: (message: string) => void;
   addChatInfo: (chatId: string, chatTitle: string, members: string) => void;
 
   deleteChat: () => void;
@@ -66,13 +66,20 @@ export const useChatStore = create<IChatStore>((set) => ({
     })),
 
   chatInfo: chat_mock.datas,
-  addChatMessage: (chatId, message) =>
+  addChatMessage: (message) =>
     set((state) => {
       const chatInfoCopy = { ...state.chatInfo };
-      const newMessages = [...chatInfoCopy[chatId].chat_messages, message];
+      const newMessage = {
+        message_id: `message_${state.chatInfo[state.nowChatId].chat_message_length + 1}`,
+        sender: JSON.parse(getCookie('user')),
+        message,
+        timestamp: new Date().toISOString()
+      }
 
-      chatInfoCopy[chatId] = {
-        ...chatInfoCopy[chatId],
+      const newMessages = [...chatInfoCopy[state.nowChatId].chat_messages, newMessage];
+
+      chatInfoCopy[state.nowChatId] = {
+        ...chatInfoCopy[state.nowChatId],
         chat_messages: newMessages,
         chat_message_length: newMessages.length,
       };

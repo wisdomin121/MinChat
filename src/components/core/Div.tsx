@@ -1,19 +1,12 @@
 import React, { ReactNode } from 'react';
 
-import { ColorType, ICommonComponent } from 'type';
+import { ICommonComponent } from 'type';
 
 import '../../App.css';
 import './DivStyle.css';
 
 interface IDiv extends ICommonComponent {
   children: ReactNode;
-  _flexDirection?: 'row' | 'column';
-  _justifyContent?: 'center';
-  _alignItems?: 'center';
-  _gap?: number;
-  _backgroundColor?: ColorType;
-  _borderRadius?: number;
-  _overflow?: 'auto';
 }
 
 export const Div = React.forwardRef(

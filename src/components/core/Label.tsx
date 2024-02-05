@@ -1,17 +1,9 @@
-import {
-  ColorType,
-  FontSizeType,
-  FontWeightType,
-  ICommonComponent,
-} from 'type';
+import { ICommonComponent } from 'type';
 
 import './LabelStyle.css';
 
 interface ILabel extends ICommonComponent {
   text: string;
-  _color?: ColorType;
-  _fontSize?: FontSizeType;
-  _fontWeight?: FontWeightType;
 }
 
 export const Label = ({

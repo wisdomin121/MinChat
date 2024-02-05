@@ -16,8 +16,6 @@ export const ChatContent = () => {
     }
   }, [nowChatId, chatInfo]);
 
-  console.log('rendering');
-
   return (
     <Div
       ref={contentRef}

@@ -1,13 +1,12 @@
 import { ReactNode } from 'react';
 
-import { ColorType, ICommonComponent } from 'type';
+import { ICommonComponent } from 'type';
 
 import '../../App.css';
 import './ButtonStyle.css';
 
 interface IButton extends ICommonComponent {
   children: ReactNode;
-  _backgroundColor?: ColorType;
   _onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 

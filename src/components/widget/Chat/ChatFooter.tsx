@@ -2,14 +2,11 @@ import { useState } from 'react';
 
 import { Button, Div, Input } from 'components';
 import { useChatStore } from 'stores';
-import { getCookie } from 'utils';
 import Icon from 'assets';
 
 export const ChatFooter = () => {
   const [message, setMessage] = useState('');
   const {
-    nowChatId,
-    chatInfo,
     addChatMessage,
     updateChatLast,
     setChatMessageLength,
@@ -22,12 +19,7 @@ export const ChatFooter = () => {
     }
 
     updateChatLast(message);
-    addChatMessage(nowChatId, {
-      message_id: `message_${chatInfo[nowChatId].chat_message_length + 1}`,
-      sender: JSON.parse(getCookie('user')),
-      message,
-      timestamp: new Date().toISOString(),
-    });
+    addChatMessage(message);
     setChatMessageLength();
 
     setMessage('');

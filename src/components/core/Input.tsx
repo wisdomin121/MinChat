@@ -1,4 +1,4 @@
-import { ColorType, ICommonComponent } from 'type';
+import { ICommonComponent } from 'type';
 
 import '../../App.css';
 import './InputStyle.css';
@@ -6,8 +6,6 @@ import './InputStyle.css';
 interface IInput extends ICommonComponent {
   _value: string;
   _placeholder?: string;
-  _backgroundColor?: ColorType;
-  _borderRadius?: number;
   setValue: React.Dispatch<React.SetStateAction<string>>;
   _onKeyDown?: () => void
 }
