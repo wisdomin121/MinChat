@@ -1,5 +1,7 @@
 import { ReactNode } from 'react';
+
 import { ICommonComponent } from 'type';
+
 import './SectionStyle.css';
 
 interface ISection extends ICommonComponent {

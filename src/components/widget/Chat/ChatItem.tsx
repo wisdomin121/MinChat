@@ -1,5 +1,5 @@
-import { Div, Label } from 'components/core';
 import { convertISOStringToAMTime, getCookie } from 'utils';
+import { Div, Label } from 'components';
 
 interface IChatItem {
   userId: string;

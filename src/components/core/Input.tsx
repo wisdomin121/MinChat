@@ -9,6 +9,7 @@ interface IInput extends ICommonComponent {
   _backgroundColor?: ColorType;
   _borderRadius?: number;
   setValue: React.Dispatch<React.SetStateAction<string>>;
+  _onKeyDown?: () => void
 }
 
 export const Input = ({
@@ -21,10 +22,17 @@ export const Input = ({
   _backgroundColor,
   _borderRadius,
   setValue,
+  _onKeyDown
 }: IInput) => {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
+
+  const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (_onKeyDown && e.key === 'Enter') {
+      _onKeyDown()
+    }
+  }
 
   return (
     <input
@@ -39,6 +47,7 @@ export const Input = ({
         borderRadius: `${_borderRadius}px`,
       }}
       onChange={(e) => onChange(e)}
+      onKeyDown={(e) => onKeyDown(e)}
     ></input>
   );
 };

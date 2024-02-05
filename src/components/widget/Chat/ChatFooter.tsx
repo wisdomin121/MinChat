@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { useChatStore } from 'stores';
 import { Button, Div, Input } from 'components';
+import { useChatStore } from 'stores';
 import { getCookie } from 'utils';
 import Icon from 'assets';
 
@@ -43,6 +43,7 @@ export const ChatFooter = () => {
         _backgroundColor="blue_1"
         _borderRadius={10}
         setValue={setMessage}
+        _onKeyDown={sendMessage}
       />
 
       <Button

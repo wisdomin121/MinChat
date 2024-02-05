@@ -1,4 +1,4 @@
-import { Div, Label } from 'components/core';
+import { Div, Label } from 'components';
 
 export const ChatMemberHeader = () => {
   return (

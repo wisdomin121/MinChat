@@ -4,6 +4,7 @@ import {
   FontWeightType,
   ICommonComponent,
 } from 'type';
+
 import './LabelStyle.css';
 
 interface ILabel extends ICommonComponent {
